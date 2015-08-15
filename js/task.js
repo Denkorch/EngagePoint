@@ -7,20 +7,65 @@ $(document).ready(function() {
 	{"order_num":"3975","create_date":"2012-05-17","order_date":"17 мая 2012","status":"Отменен"}
 	];
 
-	var print = function() {
-		for (var i = 0; i < data.length; i++) {
-			var day = data[i].order_date;
-			var number = data[i].order_num;
-			var status = data[i].status;
+	var print = function(attr) {
+		for (var i = 0; i < attr.length; i++) {
+			var day = attr[i].order_date;
+			var number = attr[i].order_num;
+			var status = attr[i].status;
 			$('.order-info').append('<li class="order-specs">' + '<span class="day">' + day +
 			 '</span>' + '<span class="number">' + number + '</span>' + '<span class="status">' + status +
 			  '</span>' + '</li>' + '<div class="clearfix">' + '</div>');
 		};
 	};
-	print();
+	print(data);
 
 	console.log(data);
-//Filter
+
+	//data-state sort
+
+	$('nav li a').on("click", function(e){
+		e.preventDefault();
+		$(".order-info").empty();
+		var data_attr = $(this).attr("data-state");
+		var data1 = data;
+		switch (data_attr){
+			case "delivered":
+				for (var i = 0; i < data.length; i++) {
+					if (data[i].status == "Доставлен") {
+						data1 = data.splice(i, 1);
+						data = data1.concat(data);
+						print(data1);
+					};
+				};
+				console.log(data1);
+				break;
+			case "current":
+				for (var i = 0; i < data.length; i++) {
+					if (data[i].status == "Отправлен курьерской службой") {
+						data1 = data.splice(i, 1);
+						data = data1.concat(data);
+						print(data1);
+					};
+				};
+				console.log(data);
+				break;
+			case "canceled":
+				for (var i = 0; i < data.length; i++) {
+					if (data[i].status == "Отменен") {
+						data1 = data.splice(i, 1);
+						data = data1.concat(data);
+						print(data1);
+					};
+				};
+				console.log(data);
+				break;
+			default:
+				print(data);
+				console.log(data);
+		};
+	});
+
+	//order-info-title items sort
 	$(".order-info-title a").attr("data-count", "1");
 	$('a[href="#status"]').on("click", function(e){
 		e.preventDefault();
@@ -36,7 +81,7 @@ $(document).ready(function() {
 				return 0;
 			});
 			$(".order-info").empty();
-			print();
+			print(data);
 			$(this).attr("data-count", "2")
 		} else {
 			data.sort(function(a, b) {
@@ -49,7 +94,7 @@ $(document).ready(function() {
 				return 0;
 			});
 			$(".order-info").empty();
-			print();
+			print(data);
 			$(this).attr("data-count", "1")
 		};
 		
@@ -63,14 +108,14 @@ $(document).ready(function() {
 				return a.order_num - b.order_num;
 			});
 			$(".order-info").empty();
-			print();
+			print(data);
 			$(this).attr("data-count", "2")
 		} else {
 			data.sort(function(a, b) {
 				return b.order_num - a.order_num;
 			});
 			$(".order-info").empty();
-			print();
+			print(data);
 			$(this).attr("data-count", "1")
 		};
 	});
