@@ -2,4 +2,58 @@
 	padding: 0;
 	margin: 0;
 }
+li {
+	list-style: none;
+}
+.clearfix {
+	clear: both;
+}
 
+body {
+	margin-left: 30px;
+}
+
+nav {
+	width: 100%;
+	height: 70px;
+}
+
+nav ul li {
+	display: block;
+	float: left;
+	padding-right: 70px;
+}
+
+nav ul li a{
+	font: 20px Verdana sans-serif;
+	color: #25a7df;
+	text-decoration: blink;
+}
+
+.order-info-header {
+	width: 100%;
+	height: 50px;
+}
+
+.order-info-header ul li {
+	width: 170px;
+	float: left;
+	margin: 19px 50px 19px 0;
+}
+
+.order-info-header ul li a {
+	font: bold 14px Verdana sans-serif;
+	line-height: 20px;
+	color: #333333;
+	text-decoration: none;
+}
+
+.order-info li {
+	margin: 19px 10px 19px 0;
+}
+
+.order-specs span {
+	width: 220px;
+	display: block;
+	float: left;
+}

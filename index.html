@@ -7,12 +7,33 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+	<nav>
+		<ul>
+			<li><a href="#all" data="all">Все заказы</a></li>
+			<li><a href="#current" data="current">Текущие</a></li>
+			<li><a href="#delivered" data="delivered">Завершенные</a></li>
+			<li><a href="#canceled" data="canceled">Отмененные</a></li>
+		</ul>
+	</nav>
+	<div class="clearfix"></div>
 
+	<main>
+		<div class="order-info-header">
+			<ul>
+				<li class="order-info-title"><a href="#date">Дата заказа</a></li>
+				<li class="order-info-title"><a href="#number">№ заказа</a></li>
+				<li class="order-info-title"><a href="#status">Текущий статус</a></li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+		<ul class="order-info"></ul>
+	</main>
 	
 
 	<!-- script area -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src = "js/jquery-2.1.3.min.js"></script>
     <script src="js/task.js"></script>
+    <!-- script area -->
 </body>
 </html>
