@@ -14,7 +14,7 @@ $(document).ready(function() {
 			var status = arr[i].status;
 			$('.order-info').append('<li class="order-keys">' + '<p >' + day +
 			 '</p>' + '<p>' + number + '</p>' + '<p>' + status +
-			  '</p>' + '</li>' + '<div class="clearfix">' + '</div>');
+			  '</p>' + '</li>');
 		};
 
 		$('li.order-keys').on("click", function(e){

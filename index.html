@@ -7,7 +7,7 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-	<nav>
+	<nav class="clearfix">
 		<ul>
 			<li><a href="#all" data-state="all">Все заказы</a></li>
 			<li><a href="#current" data-state="current">Текущие</a></li>
@@ -15,21 +15,19 @@
 			<li><a href="#canceled" data-state="canceled">Отмененные</a></li>
 		</ul>
 	</nav>
-	<div class="clearfix"></div>
 
 	<main>
-		<div class="order-info-header">
+		<div class="order-info-header clearfix">
 			<ul>
 				<li class="order-info-title"><a href="#date">Дата заказа</a></li>
 				<li class="order-info-title"><a href="#number">№ заказа</a></li>
 				<li class="order-info-title"><a href="#status">Текущий статус</a></li>
 			</ul>
 		</div>
-		<div class="clearfix"></div>
 		<ul class="order-info"></ul>
 		<!-- Info suuposed to be received w/ Ajax request - START-->
 
-	<div class="info-wraper" style="display:none">
+	<div class="info-wraper clearfix" style="display:none">
 		<div class="contacts">
 			<ul class="contacts">
 				<li><span>Имя получателя:</span>г. Киев, ул. Саксаганского, 65, кв.11</li>
@@ -38,37 +36,32 @@
 				<li><span>Оплата:</span>Наличными при получении</li>
 			</ul>
 		</div>
-		<div class="clearfix"></div>
 		<div class="details">
-			<div class="cart-header">
+			<div class="cart-header ">
 				<p class="td">Товары в заказе</p>
 				<p class="td">Количество</p>
-				<p class="td">Цена</p>
-				<div class="clearfix"></div>
+				<p class="td clearfix">Цена</p>
 			</div>
 			<div class="cart">
 				<ul>
-					<li class="order-items">
+					<li class="order-items clearfix">
 						<p><img src="img/icon-dragon.png" alt=""></p>
 						<p>Девушка с татуировкой дракона Стиг Ларссон</p>
 						<p>1</p>
 						<p class="price">138 грн.</p>
 					</li>
-					<div class="clearfix"></div>
-					<li class="order-items">
+					<li class="order-items clearfix">
 						<p><img src="img/icon-castles.png" alt=""></p>
 						<p>Девушка которая взрывала воздушные замки Стиг Ларссон</p>
 						<p>1</p>
 						<p class="price">138 грн.</p>
 					</li>
 				</ul>
-				<div class="clearfix"></div>
 			</div>
 			<p class="cost">Доставка: <span class="price">20 грн.</span></p>
 			<p class="cost">Сумма заказа: <span class="price">296 грн.</span></p>
 		</div>
 	</div>
-	<div class="clearfix"></div>
 
 	<!-- Info suuposed to be received w/ Ajax request - END-->
 	</main>
