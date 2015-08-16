@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
 	var data = [
-		{"order_num":"8570","create_date":"2012-07-09","order_date":"9 июля 2012","status":"Доставлен"},
-		{"order_num":"7681","create_date":"2012-07-03","order_date":"3 июля 2012","status":"Отправлен курьерской службой"},
-		{"order_num":"4001","create_date":"2012-05-19","order_date":"19 мая 2012","status":"Доставлен"},
-		{"order_num":"3975","create_date":"2012-05-17","order_date":"17 мая 2012","status":"Отменен"}
+		{"order_num":"8570","create_date":"2012-07-09","order_date":"9 июля 2012","status":"Доставлен","state":"delivered"},
+		{"order_num":"7681","create_date":"2012-07-03","order_date":"3 июля 2012","status":"Отправлен курьерской службой","state":"sent"},
+		{"order_num":"4001","create_date":"2012-05-19","order_date":"19 мая 2012","status":"Доставлен","state":"delivered"},
+		{"order_num":"3975","create_date":"2012-05-17","order_date":"17 мая 2012","status":"Отменен","state":"canceled"}
 	];
 
 	var print = function(arr) {
@@ -12,64 +12,90 @@ $(document).ready(function() {
 			var day = arr[i].order_date;
 			var number = arr[i].order_num;
 			var status = arr[i].status;
-			$('.order-info').append('<li class="order-keys">' + '<p >' + day +
+			var state = arr[i].state;
+			$('.order-info').append('<li class="order-keys success ' + state + '">' + '<p >' + day +
 			 '</p>' + '<p>' + number + '</p>' + '<p>' + status +
-			  '</p>' + '</li>');
+			  '</p>' + '</li>').addClass(state);
 		};
-
-		$('li.order-keys').on("click", function(e){
-			$(this).css("position", "relative");
-			$(".info-wraper").css("display", "block");
-			$( this ).height( $(".info-wraper").height() + 100 );
-		});
+		$(".order-keys").append($(".info-wraper"));
 	};
 	print(data);
+
+	$('li.order-keys').on("click", function(e){
+		$(this).children().css("display", "block");
+		$( this ).height( $(".info-wraper").height() );
+	});
 
 	console.log(data);
 
 	//data-state sort
 
-	$('nav li a').on("click", function(e){
+	$('nav li a').on("click", function(e){ //TEST
 		e.preventDefault();
-		$(".order-info").empty();
 		var data_attr = $(this).attr("data-state");
-		var data1 = data;
 		switch (data_attr){
 			case "delivered":
-				for (var i = 0; i < data.length; i++) {
-					if (data[i].status == "Доставлен") {
-						data1 = data.splice(i, 1);
-						data = data1.concat(data);
-						print(data1);
-					};
-				};
-				console.log(data1);
+				$(".is-success li").removeClass("success");
+				$(".delivered").addClass("success");
 				break;
 			case "current":
-				for (var i = 0; i < data.length; i++) {
-					if (data[i].status == "Отправлен курьерской службой") {
-						data1 = data.splice(i, 1);
-						data = data1.concat(data);
-						print(data1);
-					};
-				};
-				console.log(data);
+				$(".is-success li").removeClass("success");
+				$(".sent").addClass("success");
 				break;
 			case "canceled":
-				for (var i = 0; i < data.length; i++) {
-					if (data[i].status == "Отменен") {
-						data1 = data.splice(i, 1);
-						data = data1.concat(data);
-						print(data1);
-					};
-				};
-				console.log(data);
+				$(".is-success li").removeClass("success");
+				$(".canceled").addClass("success");
 				break;
 			default:
-				print(data);
-				console.log(data);
+				$(".is-success li").addClass("success");
 		};
 	});
+
+	
+	// $('nav li a').on("click", function(e){
+	// 	e.preventDefault();
+	// 	$(".order-info").empty();
+	// 	var data_attr = $(this).attr("data-state");
+	// 	var data1 = data;
+	// 	var data2 = [];
+	// 	switch (data_attr){
+	// 		case "delivered":
+	// 			for (var i = 0; i < data.length; i++) {
+	// 				if (data[i].status == "Доставлен") {
+	// 					data1 = data.splice(i, 1);
+	// 					data = data1.concat(data);
+	// 					print(data1);
+	// 					data2 = data1;
+	// 					console.log(data1);
+	// 				};
+	// 			};
+	// 			console.log(data2);
+	// 			break;
+	// 		case "current":
+	// 			for (var i = 0; i < data.length; i++) {
+	// 				if (data[i].status == "Отправлен курьерской службой") {
+	// 					data1 = data.splice(i, 1);
+	// 					data = data1.concat(data);
+	// 					print(data1);
+	// 				};
+	// 			};
+	// 			console.log(data);
+	// 			break;
+	// 		case "canceled":
+	// 			for (var i = 0; i < data.length; i++) {
+	// 				if (data[i].status == "Отменен") {
+	// 					data1 = data.splice(i, 1);
+	// 					data = data1.concat(data);
+	// 					print(data1);
+	// 				};
+	// 			};
+	// 			console.log(data);
+	// 			break;
+	// 		default:
+	// 			print(data);
+	// 			console.log(data);
+	// 	};
+	// });
 
 	//order-info-title items sort
 	$(".order-info-title a").attr("data-count", "1");

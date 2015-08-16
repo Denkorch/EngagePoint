@@ -67,7 +67,6 @@ nav ul li a{
 
 .info-wraper {
 	width: 100%;
-	position: absolute;
 }
 
 .contacts li {
@@ -188,3 +187,6 @@ span.price {
 	font: bold 14px Verdana sans-serif;
 	color: #f15e00;
 }
+
+.is-success > li { display: none; }
+.is-success > li.success { display: block; }
