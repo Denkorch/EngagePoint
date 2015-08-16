@@ -14,7 +14,7 @@ $(document).ready(function() {
 			var status = arr[i].status;
 			var state = arr[i].state;
 			$('.order-info').append('<li class="order-keys ' + state + '">' + '<p >' + day +
-			 '</p>' + '<p>' + number + '</p>' + '<p>' + status + '</p>' + '</li>').addClass(state);;
+			 '</p>' + '<p>' + number + '</p>' + '<p>' + status + '</p>' + '</li>');
 		};
 		$(".order-keys").append($(".info-wraper"));
 	};
@@ -28,24 +28,25 @@ $(document).ready(function() {
 	console.log(data);
 
 	//data-state sort
+	$(".order-info").addClass("is-sent is-canceled is-delivered");
 	$('nav li a').on("click", function(e){ //TEST
 		e.preventDefault();
 		var data_attr = $(this).attr("data-state");
 		switch (data_attr){
 			case "delivered":
-				$(".order-info").removeClass("sent canceled");
-				$(".order-info").addClass("delivered");
+				$(".order-info").removeClass("is-sent is-canceled");
+				$(".order-info").addClass("is-delivered");
 				break;
-			case "current":
-				$(".order-info").removeClass("canceled delivered");
-				$(".order-info").addClass("sent");
+			case "sent":
+				$(".order-info").removeClass("is-canceled is-delivered");
+				$(".order-info").addClass("is-sent");
 				break;
 			case "canceled":
-				$(".order-info").removeClass("sent delivered");
-				$(".order-info").addClass("canceled");
+				$(".order-info").removeClass("is-sent is-delivered");
+				$(".order-info").addClass("is-canceled");
 				break;
 			default:
-				$(".order-info").addClass("sent canceled delivered");
+				$(".order-info").addClass("is-sent is-canceled is-delivered");
 		};
 	});
 
