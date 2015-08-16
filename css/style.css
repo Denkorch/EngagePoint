@@ -5,6 +5,8 @@
 li {
 	list-style: none;
 }
+.order-keys::before,
+.order-keys::after,
 .order-info:before,
 .clearfix:after {
 	content: ' ';
@@ -56,10 +58,9 @@ nav ul li a{
 	display: none;
 	width: 100%;
 	outline: black solid 1px;
-	height: 50px;
 }
 
-.order-keys p {
+.order-keys > p {
 	width: 17%;
 	padding: 16px 0px 16px 0;
 	float: left;
@@ -68,6 +69,11 @@ nav ul li a{
 
 .info-wraper {
 	width: 100%;
+	display: none;
+}
+
+.is-active > .active {
+	display: block !important;
 }
 
 .contacts li {
@@ -150,23 +156,23 @@ nav ul li a{
 	white-space:nowrap;
 }
 
-.cart p:first-of-type {
+.order-items > p:first-of-type {
 	width: 6%;
 	position: relative;
 }
 
-.cart p:nth-of-type(2) {
+.order-items > p:nth-of-type(2) {
 	text-align: left;
 	width: 44%;
 
 }
 
-.cart p:nth-of-type(3) {
+.order-items > p:nth-of-type(3) {
 	text-align: center;
 	width: 25%;
 }
 
-.cart p:last-of-type {
+.order-items > p:last-of-type {
 	text-align: right;
 	padding-right: 10px;
 	width: 20%;
@@ -177,10 +183,6 @@ p.cost {
 	padding-right: 10px;
 	width: 95%;
 	height: 50px;
-}
-
-img {
-
 }
 
 p.price,

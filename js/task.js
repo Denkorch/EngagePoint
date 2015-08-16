@@ -13,23 +13,18 @@ $(document).ready(function() {
 			var number = arr[i].order_num;
 			var status = arr[i].status;
 			var state = arr[i].state;
-			$('.order-info').append('<li class="order-keys ' + state + '">' + '<p >' + day +
+			$('.order-info').append('<li class="order-keys ' + state + '" data-count="1">' + '<p >' + day +
 			 '</p>' + '<p>' + number + '</p>' + '<p>' + status + '</p>' + '</li>');
 		};
 		$(".order-keys").append($(".info-wraper"));
 	};
 	print(data);
 
-	$('li.order-keys').on("click", function(e){
-		$(this).children().css("display", "block");
-		$( this ).height( $(".info-wraper").height() );
-	});
-
 	console.log(data);
 
 	//data-state sort
 	$(".order-info").addClass("is-sent is-canceled is-delivered");
-	$('nav li a').on("click", function(e){ //TEST
+	$('nav li a').on("click", function(e){
 		e.preventDefault();
 		var data_attr = $(this).attr("data-state");
 		switch (data_attr){
@@ -49,27 +44,6 @@ $(document).ready(function() {
 				$(".order-info").addClass("is-sent is-canceled is-delivered");
 		};
 	});
-
-	// $('nav li a').on("click", function(e){ //TEST
-	// 	e.preventDefault();
-	// 	var data_attr = $(this).attr("data-state");
-	// 	switch (data_attr){
-	// 		case "delivered":
-	// 			$(".is-success li").removeClass("success");
-	// 			$(".delivered").addClass("success");
-	// 			break;
-	// 		case "current":
-	// 			$(".is-success li").removeClass("success");
-	// 			$(".sent").addClass("success");
-	// 			break;
-	// 		case "canceled":
-	// 			$(".is-success li").removeClass("success");
-	// 			$(".canceled").addClass("success");
-	// 			break;
-	// 		default:
-	// 			$(".is-success li").addClass("success");
-	// 	};
-	// });
 
 	//order-info-title items sort
 	$(".order-info-title a").attr("data-count", "1");
@@ -133,16 +107,14 @@ $(document).ready(function() {
 
 	//order-specs toggle
 
-	// var orderId = [
-	// 	{
-	// 		"Имя получателя":"Иванов Иван Иванович",
-	// 		"tel":"+380 50 123-45-56",
-	// 		"delivery":"Курьером",
-	// 		"address":"г. Киев, ул. Саксаганского, 65, кв.11",
-	// 		"payment":"	"
-	// 	}
-	// ];
-
-
-
+	$('.order-keys').on("click", function(e){
+		
+		if ($(this).attr("data-count") == 1) {
+			$(this).addClass("is-active");
+			$(this).attr("data-count", "2")
+		} else {
+			$(this).removeClass("is-active");
+			$(this).attr("data-count", "1")
+		};
+	});
 });
