@@ -10,24 +10,23 @@ li {
 }
 
 body {
-	margin-left: 30px;
+	margin: 25px;
 }
 
 nav {
 	width: 100%;
-	height: 70px;
 }
 
 nav ul li {
+	margin-right: 50px;
 	display: block;
 	float: left;
-	padding-right: 70px;
 }
 
 nav ul li a{
 	font: 20px Verdana sans-serif;
 	color: #25a7df;
-	text-decoration: blink;
+	text-decoration: none;
 }
 
 .order-info-header {
@@ -36,24 +35,148 @@ nav ul li a{
 }
 
 .order-info-header ul li {
-	width: 170px;
+	width: 17%;
 	float: left;
-	margin: 19px 50px 19px 0;
+	margin: 19px 0px 19px 0;
 }
 
 .order-info-header ul li a {
-	font: bold 14px Verdana sans-serif;
-	line-height: 20px;
-	color: #333333;
 	text-decoration: none;
 }
 
-.order-info li {
-	margin: 19px 10px 19px 0;
+.order-keys {
+	width: 100%;
+	outline: black solid 1px;
+	height: 50px;
 }
 
-.order-specs span {
-	width: 220px;
+.order-keys p {
+	width: 17%;
+	padding: 16px 0px 16px 0;
+	float: left;
+	overflow: visible;
+}
+
+.info-wraper {
+	width: 100%;
+	position: absolute;
+}
+
+.contacts li {
+	width: 50%;
+	clear: left;
+}
+
+.contacts li span {
 	display: block;
 	float: left;
+	width: 220px;
+	color:#999999;
+	font: 14px Verdana sans-serif;
+	line-height: 20px;
+	margin: 0px;
+}
+
+.order-info-title {
+	display: block;
+	float: left;
+	font: bold 14px Verdana sans-serif;
+	line-height: 20px;
+	color: #333333;
+}
+
+.details {
+	width: 100%;
+}
+
+.cart-header {
+	width: 100%;
+	height: 30px;
+	padding-top: 30px;
+}
+
+.cart-header p {
+	float: left;
+	font: bold 14px Verdana sans-serif;
+}
+
+.cart-header p:first-child {
+	text-align: left;
+	width: 50%;
+}
+
+.cart-header p:nth-child(2) {
+	text-align: center;
+	width: 25%;
+}
+
+.cart-header p:last-of-type {
+	text-align: right;
+	padding-right: 10px;
+	width: 20%;
+}
+
+.order-items p {
+	display: block;
+	float: left;
+}
+
+.cart {
+	width: 100%;
+	padding-top: 30px;
+}
+.cart li {
+	width: 100%;
+	height: 110px;
+}
+
+.cart p {
+	float: left;
+	font: 12px Verdana sans-serif;
+	line-height: 16px;
+}
+
+.cart p span {
+	clear: both;
+	margin: 0;
+	white-space:nowrap;
+}
+
+.cart p:first-of-type {
+	width: 6%;
+	position: relative;
+}
+
+.cart p:nth-of-type(2) {
+	text-align: left;
+	width: 44%;
+
+}
+
+.cart p:nth-of-type(3) {
+	text-align: center;
+	width: 25%;
+}
+
+.cart p:last-of-type {
+	text-align: right;
+	padding-right: 10px;
+	width: 20%;
+}
+
+p.cost {
+	text-align: right;
+	padding-right: 10px;
+	width: 95%;
+	height: 50px;
+}
+
+img {
+
+}
+
+p.price,
+span.price {
+	font: bold 14px Verdana sans-serif;
+	color: #f15e00;
 }

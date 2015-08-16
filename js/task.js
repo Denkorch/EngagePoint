@@ -1,21 +1,27 @@
 $(document).ready(function() {
 
 	var data = [
-	{"order_num":"8570","create_date":"2012-07-09","order_date":"9 июля 2012","status":"Доставлен"},
-	{"order_num":"7681","create_date":"2012-07-03","order_date":"3 июля 2012","status":"Отправлен курьерской службой"},
-	{"order_num":"4001","create_date":"2012-05-19","order_date":"19 мая 2012","status":"Доставлен"},
-	{"order_num":"3975","create_date":"2012-05-17","order_date":"17 мая 2012","status":"Отменен"}
+		{"order_num":"8570","create_date":"2012-07-09","order_date":"9 июля 2012","status":"Доставлен"},
+		{"order_num":"7681","create_date":"2012-07-03","order_date":"3 июля 2012","status":"Отправлен курьерской службой"},
+		{"order_num":"4001","create_date":"2012-05-19","order_date":"19 мая 2012","status":"Доставлен"},
+		{"order_num":"3975","create_date":"2012-05-17","order_date":"17 мая 2012","status":"Отменен"}
 	];
 
-	var print = function(attr) {
-		for (var i = 0; i < attr.length; i++) {
-			var day = attr[i].order_date;
-			var number = attr[i].order_num;
-			var status = attr[i].status;
-			$('.order-info').append('<li class="order-specs">' + '<span class="day">' + day +
-			 '</span>' + '<span class="number">' + number + '</span>' + '<span class="status">' + status +
-			  '</span>' + '</li>' + '<div class="clearfix">' + '</div>');
+	var print = function(arr) {
+		for (var i = 0; i < arr.length; i++) {
+			var day = arr[i].order_date;
+			var number = arr[i].order_num;
+			var status = arr[i].status;
+			$('.order-info').append('<li class="order-keys">' + '<p >' + day +
+			 '</p>' + '<p>' + number + '</p>' + '<p>' + status +
+			  '</p>' + '</li>' + '<div class="clearfix">' + '</div>');
 		};
+
+		$('li.order-keys').on("click", function(e){
+			$(this).css("position", "relative");
+			$(".info-wraper").css("display", "block");
+			$( this ).height( $(".info-wraper").height() + 100 );
+		});
 	};
 	print(data);
 
@@ -124,5 +130,19 @@ $(document).ready(function() {
 		e.preventDefault();
 		$('a[href="#number"]').click();
 	});
+
+	//order-specs toggle
+
+	// var orderId = [
+	// 	{
+	// 		"Имя получателя":"Иванов Иван Иванович",
+	// 		"tel":"+380 50 123-45-56",
+	// 		"delivery":"Курьером",
+	// 		"address":"г. Киев, ул. Саксаганского, 65, кв.11",
+	// 		"payment":"	"
+	// 	}
+	// ];
+
+
 
 });
