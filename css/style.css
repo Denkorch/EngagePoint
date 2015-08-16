@@ -53,6 +53,7 @@ nav ul li a{
 }
 
 .order-keys {
+	display: none;
 	width: 100%;
 	outline: black solid 1px;
 	height: 50px;
@@ -188,5 +189,6 @@ span.price {
 	color: #f15e00;
 }
 
-.is-success > li { display: none; }
-.is-success > li.success { display: block; }
+.sent > .sent {display: block;}
+.canceled > .canceled {display: block;}
+.delivered > .delivered {display: block;}

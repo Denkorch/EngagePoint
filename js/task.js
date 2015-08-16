@@ -13,9 +13,8 @@ $(document).ready(function() {
 			var number = arr[i].order_num;
 			var status = arr[i].status;
 			var state = arr[i].state;
-			$('.order-info').append('<li class="order-keys success ' + state + '">' + '<p >' + day +
-			 '</p>' + '<p>' + number + '</p>' + '<p>' + status +
-			  '</p>' + '</li>');
+			$('.order-info').append('<li class="order-keys ' + state + '">' + '<p >' + day +
+			 '</p>' + '<p>' + number + '</p>' + '<p>' + status + '</p>' + '</li>').addClass(state);;
 		};
 		$(".order-keys").append($(".info-wraper"));
 	};
@@ -34,21 +33,42 @@ $(document).ready(function() {
 		var data_attr = $(this).attr("data-state");
 		switch (data_attr){
 			case "delivered":
-				$(".is-success li").removeClass("success");
-				$(".delivered").addClass("success");
+				$(".order-info").removeClass("sent canceled");
+				$(".order-info").addClass("delivered");
 				break;
 			case "current":
-				$(".is-success li").removeClass("success");
-				$(".sent").addClass("success");
+				$(".order-info").removeClass("canceled delivered");
+				$(".order-info").addClass("sent");
 				break;
 			case "canceled":
-				$(".is-success li").removeClass("success");
-				$(".canceled").addClass("success");
+				$(".order-info").removeClass("sent delivered");
+				$(".order-info").addClass("canceled");
 				break;
 			default:
-				$(".is-success li").addClass("success");
+				$(".order-info").addClass("sent canceled delivered");
 		};
 	});
+
+	// $('nav li a').on("click", function(e){ //TEST
+	// 	e.preventDefault();
+	// 	var data_attr = $(this).attr("data-state");
+	// 	switch (data_attr){
+	// 		case "delivered":
+	// 			$(".is-success li").removeClass("success");
+	// 			$(".delivered").addClass("success");
+	// 			break;
+	// 		case "current":
+	// 			$(".is-success li").removeClass("success");
+	// 			$(".sent").addClass("success");
+	// 			break;
+	// 		case "canceled":
+	// 			$(".is-success li").removeClass("success");
+	// 			$(".canceled").addClass("success");
+	// 			break;
+	// 		default:
+	// 			$(".is-success li").addClass("success");
+	// 	};
+	// });
 
 	//order-info-title items sort
 	$(".order-info-title a").attr("data-count", "1");
